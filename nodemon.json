@@ -1,0 +1,9 @@
+{
+    "watch": [
+        "./routes/",
+        "./views/",
+        "./controllers/",
+        "app.js"
+    ],
+    "ext": "js, css, ejs"
+}
