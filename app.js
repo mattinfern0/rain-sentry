@@ -22,7 +22,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Defaults for every view
 const navigation = [
   {name: 'Home', link: '/'},
-  {name: 'Rainy Days', link: '/rainydays'}
+  {name: 'Rainy Days', link: '/rainy_days'},
+  {name: 'Email Alerts', link: '/email_alerts'}
 ]
 app.use((req, res, next) => {
   res.locals.baseTitle = 'Rain Alert'; 
