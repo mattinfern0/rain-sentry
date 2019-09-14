@@ -19,8 +19,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Defaults for every view
+const navigation = [
+  {name: 'Home', link: '/'},
+  {name: 'Rainy Days', link: '/rainydays'}
+]
+app.use((req, res, next) => {
+  res.locals.baseTitle = 'Rain Alert'; 
+  res.locals.navigation = navigation;
+  next();
+});
+
+// Routers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

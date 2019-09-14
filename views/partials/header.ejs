@@ -1,1 +1,13 @@
-<h1>Welcome To <%= title %></h1>
+<header>
+    <nav>
+        <ul>
+            <% for (let i = 0; i < navigation.length; i++) { %>
+                <li>
+                    <a href='<%= navigation[i].link %>'>
+                        <%= navigation[i].name %>
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+    </nav>
+</header>
