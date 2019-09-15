@@ -43,9 +43,10 @@ input[type="submit"]{
     padding: 20px;
 }
 
-#rainy-day-list span {
+#rainy-day-list span, #rainy-day-list img {
     display: inline-block;
     font-size: 16pt;
+    vertical-align: middle;
 }
 
 .description {
@@ -54,6 +55,7 @@ input[type="submit"]{
 
 .right-align {
     float: right;
+    
 }
 
 .error {
@@ -89,6 +91,11 @@ footer {
 footer a:visited, footer a{
     color: #eb6e4b;
     text-decoration: none;
+}
+
+.weather-description * {
+    vertical-align: middle;
+    display: inline-block;
 }
 
 

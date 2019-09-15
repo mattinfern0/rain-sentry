@@ -37,8 +37,9 @@ function capitalizeFirstLetter(string){
   return result;
 }
 
-function getIconUrl(iconCode){
-  return `https://openweathermap.org/img/wn/${iconCode}@2x.png`
+// if getLarge is true, gets the bigger version of the icon
+function getIconUrl(iconCode, getLarge=false){
+  return `https://openweathermap.org/img/wn/${iconCode}${getLarge ? '@2x' : ''}.png`
 }
 
 // Gets all the relevant info from the response object 
@@ -48,7 +49,7 @@ const getTodayForecast = (forecastList) => {
     weather: {
       name: capitalizeFirstLetter(todayForecast.weather[0].main),
       description: capitalizeFirstLetter(todayForecast.weather[0].description),
-      iconUrl: getIconUrl(todayForecast.weather[0].icon),
+      iconUrl: getIconUrl(todayForecast.weather[0].icon, true),
     },
     tempCurrent: todayForecast.main.temp,
     tempMin: todayForecast.main.temp_min,
@@ -72,6 +73,7 @@ const getRainyDays = (forecastList) => {
         time: dateTime.format('H:mm'),
         main: weather.main,
         description: capitalizeFirstLetter(weather.description),
+        iconUrl: getIconUrl(weather.icon),
       })
     }
   }

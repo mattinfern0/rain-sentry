@@ -2,6 +2,7 @@
     <ul id="rainy-day-list">
         <% for (let i = 0; i < rainyDays.length; i++) { %>
             <li>
+                <img src="<%= rainyDays[i].iconUrl %>">
                 <span class="description">
                     <%= rainyDays[i].description %>
                 </span>
