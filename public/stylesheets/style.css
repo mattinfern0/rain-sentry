@@ -74,5 +74,22 @@ h3 .locationName {
     font-weight: bold;
 }
 
+footer {
+    display: block;
+    position: fixed;
+    bottom: 0;
+
+    padding: 10px;
+    margin-right: 10px;
+    text-align: right;
+    width: 100%;
+    right: 0;
+}
+
+footer a:visited, footer a{
+    color: #eb6e4b;
+    text-decoration: none;
+}
+
 
 

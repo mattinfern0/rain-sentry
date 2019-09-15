@@ -5,10 +5,13 @@
     
     <body>
         <% include ./partials/header %>
+        
         <h1>Oops! How did we end up here?</h1>
         <h2><%= message %></h2>
         <h3><%= error.status %></h3>
         <pre><%= error.stack %></pre>
+
+        <% include ./partials/footer %>
     </body>
 </html>
 

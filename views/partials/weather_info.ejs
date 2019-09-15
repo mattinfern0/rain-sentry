@@ -1,0 +1,7 @@
+<div>
+    <h3><%= weatherInfo.weather.description %></h3>
+    <p class="temperature">Current: <%= weatherInfo.tempCurrent %> F</p>
+    <p class="temperature">Low: <%= weatherInfo.tempMin + String.fromCharCode %> F</p>
+    <p class="temperature">High: <%= weatherInfo.tempMax %> F</p>
+    <img src="<%= weatherInfo.weather.iconUrl %>">
+</div>

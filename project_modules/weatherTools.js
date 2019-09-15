@@ -6,7 +6,8 @@ const baseUrl = "http://api.openweathermap.org/data/2.5/forecast";
 
 // Returns a promise of the request
 const getWeather = (zipCode) => {
-  const requestUrl = `${baseUrl}?zip=${encodeURIComponent(zipCode)}&APPID=${apiKey}`;
+  const weatherUnits = 'imperial'
+  const requestUrl = `${baseUrl}?zip=${encodeURIComponent(zipCode)}&units=${weatherUnits}&APPID=${apiKey}`;
 
   return fetch(requestUrl, {method: 'get'})
     .then((res) => {
@@ -29,16 +30,31 @@ function isRaining(weatherCode){
     || inRange(weatherCode, 500, 599));
 }
 
-function parseDT(dt){
-  return moment.utc(dt, 'X').format('H:mm, MMM D');
-}
-
-
-
 function capitalizeFirstLetter(string){
   console.log('Before', string);
   const result = string.charAt(0).toUpperCase() + string.slice(1);
   console.log("After", result);
+  return result;
+}
+
+function getIconUrl(iconCode){
+  return `https://openweathermap.org/img/wn/${iconCode}@2x.png`
+}
+
+// Gets all the relevant info from the response object 
+const getTodayForecast = (forecastList) => {
+  const todayForecast = forecastList[0];
+  const result = {
+    weather: {
+      name: capitalizeFirstLetter(todayForecast.weather[0].main),
+      description: capitalizeFirstLetter(todayForecast.weather[0].description),
+      iconUrl: getIconUrl(todayForecast.weather[0].icon),
+    },
+    tempCurrent: todayForecast.main.temp,
+    tempMin: todayForecast.main.temp_min,
+    tempMax: todayForecast.main.temp_max,
+  }
+  console.log("Forecast info: ", result);
   return result;
 }
 //
@@ -65,3 +81,4 @@ const getRainyDays = (forecastList) => {
 
 exports.getRainyDays = getRainyDays;
 exports.getWeather = getWeather;
+exports.getTodayForecast = getTodayForecast;

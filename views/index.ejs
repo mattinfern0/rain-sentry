@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <% include ./partials/head %>
-  </head>
+<head>
+<% include ./partials/head %>
+</head>
 
-  <body>
+<body>
     <% include ./partials/header %>
 
     <div id="content">
-      <form action="<%= targetUrl %>" method="POST">
-        <input name="zipcode" type="text" placeholder="Zipcode">
-        <input type="submit" value="Submit">
-      </form>
+        <form action="<%= targetUrl %>" method="POST">
+            <input name="zipcode" type="text" placeholder="Zipcode">
+            <input type="submit" value="<%= (typeof submitName !== 'undefined') ? submitName : 'Submit' %>">
+        </form>
 
-      <% if (messages.error) { %>
-        <p class="error"><%= messages.error %></p>
-      <% } else if (typeof rainyDays !== 'undefined') {%>
-        <h3>
-          Results For: <span class="locationName"><%= locationName %></span>
-        </h3>
-        <% include ./partials/rainy_list %>
-      <% } %>
+        <% if (messages.error) { %>
+            <p class="error"><%= messages.error %></p>
+        <% } else if (typeof rainyDays !== 'undefined') {%>
+            <h3>
+                Results For: <span class="locationName"><%= locationName %></span>
+            </h3>
+            <% include ./partials/rainy_list %>
+        <% } else if (typeof weatherInfo !== 'undefined') { %>
+            <h3>
+                Results For: <span class="locationName"><%= locationName %></span>
+            </h3>
+            <% include ./partials/weather_info %>
+        <% } %>
     </div>
-  </body>
+    
+    <% include ./partials/footer %>
+</body>
 </html>
