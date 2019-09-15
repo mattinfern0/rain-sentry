@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Defaults for every view
 const navigation = [
-  {name: 'Weather', link: '/'},
+  {name: 'Weather', link: '/weather'}, // Default root
   {name: 'Rainy Days', link: '/rainy_days'},
   {name: 'Email Alerts', link: '/email_alerts'}
 ]

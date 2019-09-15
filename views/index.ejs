@@ -16,6 +16,9 @@
       <% if (messages.error) { %>
         <p class="error"><%= messages.error %></p>
       <% } else if (typeof rainyDays !== 'undefined') {%>
+        <h3>
+          Results For: <span class="locationName"><%= locationName %></span>
+        </h3>
         <% include ./partials/rainy_list %>
       <% } %>
     </div>

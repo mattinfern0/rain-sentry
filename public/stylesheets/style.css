@@ -36,7 +36,7 @@ input[type="submit"]{
 
 #rainy-day-list li {
     display: block;
-    font-size: 16pt;
+    
     margin-top: 10px;
     margin-bottom: 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -45,6 +45,7 @@ input[type="submit"]{
 
 #rainy-day-list span {
     display: inline-block;
+    font-size: 16pt;
 }
 
 .description {
@@ -62,6 +63,15 @@ input[type="submit"]{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16pt;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+h3, h3 * {
+    font-size: 20pt;
+    font-weight: normal;
+}
+
+h3 .locationName {
+    font-weight: bold;
 }
 
 
