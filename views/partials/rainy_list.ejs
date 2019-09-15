@@ -1,0 +1,21 @@
+<% if (rainyDays.length > 0) { %>
+    <ul id="rainy-day-list">
+        <% for (let i = 0; i < rainyDays.length; i++) { %>
+            <li>
+                <span class="description">
+                    <%= rainyDays[i].description %>
+                </span>
+                <span class="right-align">
+                    <span class="time">
+                        <%= rainyDays[i].time %>
+                    </span>
+                    <span class="date">
+                        <%= rainyDays[i].date %>
+                    </span>
+                </span>
+            </li>
+        <% } %>
+    </ul>
+<% } else { %>
+    <p>All dry!</p>
+<% } %>

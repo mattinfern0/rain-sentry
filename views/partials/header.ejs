@@ -2,7 +2,7 @@
     <nav>
         <ul>
             <% for (let i = 0; i < navigation.length; i++) { %>
-                <li>
+                <li class="<%= selectedI === i ? 'selected' : '' %>">
                     <a href='<%= navigation[i].link %>'>
                         <%= navigation[i].name %>
                     </a>

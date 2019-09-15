@@ -3,7 +3,8 @@
         "./routes/",
         "./views/",
         "./controllers/",
-        "app.js"
+        "app.js",
+        "./project_modules/"
     ],
     "ext": "js, css, ejs"
 }

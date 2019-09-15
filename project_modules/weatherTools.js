@@ -11,13 +11,11 @@ const getWeather = (zipCode) => {
   return fetch(requestUrl, {method: 'get'})
     .then((res) => {
       if (!res.ok){
+        console.log("Status not ok: ", res);
         throw new Error(res.status);
       }
       return res.json()
-    }).catch((err) => {
-      console.log("Error while getting weather: ", err);
-      return null;
-    })
+    });
 }
 
 // Range includes min/max
@@ -32,20 +30,32 @@ function isRaining(weatherCode){
 }
 
 function parseDT(dt){
-  return moment.utc(dt, 'X').format('H:mm, MMM D YYYY');
+  return moment.utc(dt, 'X').format('H:mm, MMM D');
 }
 
+
+
+function capitalizeFirstLetter(string){
+  console.log('Before', string);
+  const result = string.charAt(0).toUpperCase() + string.slice(1);
+  console.log("After", result);
+  return result;
+}
+//
 const getRainyDays = (forecastList) => {
   const result = []
   for (let i = 0; i < forecastList.length; i += 2){
-    let forecast = forecastList[i];
-    let weather = forecast.weather[0];
+    const forecast = forecastList[i];
+    const weather = forecast.weather[0];
+
     if (isRaining(weather.id)){
+      const dateTime = moment.utc(forecast.dt, 'X');
       result.push({
-        dt: forecast.dt,
-        parsedTime: parseDT(forecast.dt),
+        dateTime: dateTime,
+        date: dateTime.format('MMM D'),
+        time: dateTime.format('H:mm'),
         main: weather.main,
-        description: weather.description,
+        description: capitalizeFirstLetter(weather.description),
       })
     }
   }

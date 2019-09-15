@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const flash = require('express-flash');
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -17,11 +19,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Defaults for every view
 const navigation = [
-  {name: 'Home', link: '/'},
+  {name: 'Weather', link: '/'},
   {name: 'Rainy Days', link: '/rainy_days'},
   {name: 'Email Alerts', link: '/email_alerts'}
 ]
@@ -31,11 +34,17 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(session({ 
+  cookie: { maxAge: 60000 }, 
+  secret: 'Whatever',
+  resave: false,
+  saveUninitialized: true, 
+}));
+app.use(flash());
+
 // Routers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

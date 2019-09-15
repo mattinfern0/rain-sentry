@@ -6,17 +6,18 @@
 
   <body>
     <% include ./partials/header %>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <p>Test</p>
 
-    <form action="/rainy_days" method="POST">
-      <input name="zipcode" type="text" placeholder="Zipcode">
-    </form>
+    <div id="content">
+      <form action="<%= targetUrl %>" method="POST">
+        <input name="zipcode" type="text" placeholder="Zipcode">
+        <input type="submit" value="Submit">
+      </form>
 
-    <% if (typeof rainyDays !== 'undefined') {%>
-      <h1>Rainy Days:</h1>
-
-    <% } %>
+      <% if (messages.error) { %>
+        <p class="error"><%= messages.error %></p>
+      <% } else if (typeof rainyDays !== 'undefined') {%>
+        <% include ./partials/rainy_list %>
+      <% } %>
+    </div>
   </body>
 </html>
