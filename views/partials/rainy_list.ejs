@@ -1,7 +1,7 @@
 <% if (rainyDays.length > 0) { %>
     <ul id="rainy-day-list">
         <% for (let i = 0; i < rainyDays.length; i++) { %>
-            <li>
+            <li class="content-block">
                 <img src="<%= rainyDays[i].iconUrl %>">
                 <span class="description">
                     <%= rainyDays[i].description %>
@@ -18,5 +18,8 @@
         <% } %>
     </ul>
 <% } else { %>
-    <p>All dry!</p>
+    <div class="content-block">
+        <h3>Look's like you're all clear!</h3>
+    </div>
+    
 <% } %>

@@ -1,7 +1,41 @@
 
+html {
+    background-color: #57697E;
+}
+
+#logo h1 {
+    font-family: 'Paytone One', sans-serif;
+    font-size: 3.3em;
+    text-align: center;
+    height: auto;
+    padding: 10px;
+    color: #EFEFEF;
+    font-weight: normal;
+}
+
+#logo * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#logo {
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 #content {
     height: 100%;
+    width: 50%;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    background-color: #BAC7CD;
+    border-radius: 5px;
+    margin-bottom: 30px;
 }
 
 form {
@@ -28,19 +62,24 @@ input[type="submit"]{
 
 #rainy-day-list {
     list-style: none;
-    width: 50%;
-    margin: 10px auto 0  auto;
     text-align: left;
     
 }
 
-#rainy-day-list li {
+.content-block {
     display: block;
     
+    background-color: #E5E5E5;
     margin-top: 10px;
     margin-bottom: 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     padding: 20px;
+    border-radius: 5px;
+}
+
+.content-block img {
+    background-color:#5088C7;
+    border-radius: 100px;
 }
 
 #rainy-day-list span, #rainy-day-list img {
@@ -55,7 +94,6 @@ input[type="submit"]{
 
 .right-align {
     float: right;
-    
 }
 
 .error {
@@ -78,14 +116,15 @@ h3 .locationName {
 
 footer {
     display: block;
-    position: fixed;
     bottom: 0;
-
-    padding: 10px;
-    margin-right: 10px;
+    position: fixed;
     text-align: right;
     width: 100%;
-    right: 0;
+}
+
+footer div {
+    display: block;
+    padding: 10px;
 }
 
 footer a:visited, footer a{
