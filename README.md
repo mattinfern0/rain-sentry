@@ -1,5 +1,4 @@
 # rain-sentry
-![Screenshot of UI](misc/example_beta.png)
 ## What is it?
 A small weather app based around [OpenWeather's API](https://openweathermap.org/api).
 
