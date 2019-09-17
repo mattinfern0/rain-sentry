@@ -58,6 +58,13 @@ input[type="text"] {
 input[type="submit"]{
     text-align: center;
     background-color: white;
+    font-weight: bold;
+    color: rgb(69, 82, 97);
+}
+
+input[type="submit"]:hover{
+    color: rgb(52, 146, 253);
+    transition: color 0.1s ease;
 }
 
 #rainy-day-list {
@@ -135,7 +142,20 @@ footer a:visited, footer a{
 .weather-description * {
     vertical-align: middle;
     display: inline-block;
+    font-weight: bolder;
 }
+
+.current-temp{
+    text-align: left;
+
+    color: #5088c7;
+    font-size: 3em;
+    font-weight: bolder;
+
+    margin-right: 10%;
+}
+
+
 
 
 

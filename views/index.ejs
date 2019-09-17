@@ -8,9 +8,9 @@
     <% include ./partials/header %>
 
     <div id="content">
-        <form action="<%= targetUrl %>" method="POST">
+        <form action="<%= targetUrl %>" method="POST" autofill="off">
             <input name="zipcode" type="text" placeholder="Zipcode">
-            <input type="submit" value="<%= (typeof submitName !== 'undefined') ? submitName : 'Submit' %>">
+            <input type="submit" value="Get Weather">
         </form>
 
         <% if (messages.error) { %>

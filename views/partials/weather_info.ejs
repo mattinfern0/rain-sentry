@@ -1,12 +1,13 @@
 <div class="content-block">
     <div class="weather-description">
+        <span class="current-temp">
+            <%= weatherInfo.tempCurrent %> F
+        </span>
         <span>
             <h3><%= weatherInfo.weather.description %></h3>
         </span>
         <img src="<%= weatherInfo.weather.iconUrl %>">
     </div>
-    <p class="temperature">Current: <%= weatherInfo.tempCurrent %> F
-    </p>
     <p class="temperature">Low: <%= weatherInfo.tempMin %> F</p>
     <p class="temperature">High: <%= weatherInfo.tempMax %> F</p>
 </div>

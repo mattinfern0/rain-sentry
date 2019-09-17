@@ -6,10 +6,15 @@
     <body>
         <% include ./partials/header %>
         
-        <h1>Oops! How did we end up here?</h1>
-        <h2><%= message %></h2>
-        <h3><%= error.status %></h3>
-        <pre><%= error.stack %></pre>
+        <div class="content-block">
+            <h1>Oops! How did we end up here?</h1>
+        </div>
+        <div class="content-block">
+            <h2><%= message %></h2>
+            <h3><%= error.status %></h3>
+            <pre><%= error.stack %></pre>
+        </div>
+        
 
         <% include ./partials/footer %>
     </body>
