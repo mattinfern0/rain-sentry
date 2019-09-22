@@ -1,4 +1,3 @@
-const apiKey = require('../secret/weatherAPI');
 const fetch = require('node-fetch');
 const moment = require('moment');
 
