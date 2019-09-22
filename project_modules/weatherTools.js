@@ -7,7 +7,7 @@ const baseUrl = "http://api.openweathermap.org/data/2.5/forecast";
 // Returns a promise of the request
 const getWeather = (zipCode) => {
   const weatherUnits = 'imperial'
-  const requestUrl = `${baseUrl}?zip=${encodeURIComponent(zipCode)}&units=${weatherUnits}&APPID=${apiKey}`;
+  const requestUrl = `${baseUrl}?zip=${encodeURIComponent(zipCode)}&units=${weatherUnits}&APPID=${process.env.WEATHER_KEY}`;
 
   return fetch(requestUrl, {method: 'get'})
     .then((res) => {
