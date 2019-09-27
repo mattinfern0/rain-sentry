@@ -1,50 +1,17 @@
 const fetch = require('node-fetch');
 const moment = require('moment');
+const CallLimiter = require('./CallLimiter');
 
 const baseUrl = "http://api.openweathermap.org/data/2.5/forecast";
 
-const ApiMessenger = (() => {
-  // This makes sure the app won't go over the API limit (so i don't get charged)
-  // Current plan has limit of 60 calls/min
-  const maxApiCallsPerMin = process.env.API_CALLS_PER_MIN || 50;
-  console.log('max set to: ', maxApiCallsPerMin);
-  let apiCallCount = 0
-
-  const resetFunc = () => {
-    console.log('Setting apiCallCount back to 0');
-    apiCallCount = 0;
-  }
-  setInterval( resetFunc, 60000);
-
-  // requestFunc doesn't take any args
-  function doRequest(requestFunc){
-    console.log('apiCallCount: ', apiCallCount);
-
-    return new Promise((resolve, reject) => {
-      if (apiCallCount >= maxApiCallsPerMin) {
-        console.log(`apiCallCount ${apiCallCount} has reached the limit (${maxApiCallsPerMin} calls/min)`);
-  
-        reject(Error('API Call Limit Reached'));
-      } else {
-        apiCallCount++;
-        resolve(requestFunc());
-      }
-    });
-    
-  }
-
-  return {
-    doRequest
-  }
-
-})();
+ApiCallLimiter = CallLimiter((process.env.API_CALLS_PER_MIN || 40), 'API Call Limit Reached')
 
 // Returns a promise of the request
 const getWeather = (zipCode) => {
   const weatherUnits = 'imperial'
   const requestUrl = `${baseUrl}?zip=${encodeURIComponent(zipCode)}&units=${weatherUnits}&APPID=${process.env.WEATHER_KEY}`;
 
-  const requestFunc = () => {
+  const promiseFunc = () => {
     return fetch(requestUrl, {method: 'get'})
     .then((res) => {
       if (!res.ok){
@@ -55,7 +22,7 @@ const getWeather = (zipCode) => {
     });
   }
   
-  return ApiMessenger.doRequest(requestFunc);
+  return ApiCallLimiter.executePromise(promiseFunc);
 }
 
 // Range includes min/max
