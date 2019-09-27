@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 
 html {
     background-color: #57697E;
@@ -34,7 +38,8 @@ html {
     margin-right: auto;
     padding: 10px;
     background-color: #BAC7CD;
-    border-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     margin-bottom: 30px;
 }
 
