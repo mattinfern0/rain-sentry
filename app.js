@@ -30,7 +30,7 @@ const navigation = [
   {name: 'Email Alerts', link: '/email_alerts'}
 ]
 app.use((req, res, next) => {
-  res.locals.baseTitle = 'Rain Alert'; 
+  res.locals.baseTitle = 'Rain Sentry'; 
   res.locals.navigation = navigation;
   next();
 });

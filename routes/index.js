@@ -41,6 +41,8 @@ router.post('/weather', [
       errorMessage = 'Couldn\'t find weather data for this location';
     } else if (err.message === 'invalid zipcode'){
       errorMessage = 'Invalid zipcode'
+    } else if (err.message === 'API Call Limit Reached') {
+      errorMessage = 'The server is busy. Try again in 1 minute'
     }
 
     req.flash('error', errorMessage);
@@ -79,6 +81,8 @@ router.post('/rainy_days', [
         errorMessage = 'Couldn\'t find weather data for this location';
       } else if (err.message === 'invalid zipcode'){
         errorMessage = 'Invalid zipcode'
+      } else if (err.message === 'API Call Limit Reached') {
+        errorMessage = 'The server is busy. Try again in 1 minute'
       }
 
       req.flash('error', errorMessage);

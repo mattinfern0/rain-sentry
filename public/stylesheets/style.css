@@ -125,8 +125,8 @@ footer {
     display: block;
     bottom: 0;
     position: fixed;
-    text-align: right;
     width: 100%;
+    background-color: rgba(42, 52, 59, 0.84);
 }
 
 footer div {
@@ -134,9 +134,17 @@ footer div {
     padding: 10px;
 }
 
+.align-right {
+    float: right;
+}
+
 footer a:visited, footer a{
-    color: #eb6e4b;
+    color: #2196f3;
     text-decoration: none;
+}
+
+footer a.openweather-link {
+    color: #eb6e4b;
 }
 
 .weather-description * {
