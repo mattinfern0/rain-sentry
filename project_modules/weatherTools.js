@@ -15,7 +15,6 @@ const getWeather = (zipCode) => {
     return fetch(requestUrl, {method: 'get'})
     .then((res) => {
       if (!res.ok){
-        console.log("Status not ok: ", res);
         throw new Error(res.status);
       }
       return res.json()
@@ -37,10 +36,7 @@ function isRaining(weatherCode){
 }
 
 function capitalizeFirstLetter(string){
-  console.log('Before', string);
-  const result = string.charAt(0).toUpperCase() + string.slice(1);
-  console.log("After", result);
-  return result;
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 // if getLarge is true, gets the bigger version of the icon
@@ -61,7 +57,6 @@ const getTodayForecast = (forecastList) => {
     tempMin: todayForecast.main.temp_min,
     tempMax: todayForecast.main.temp_max,
   }
-  console.log("Forecast info: ", result);
   return result;
 }
 //
