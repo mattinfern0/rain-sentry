@@ -1,4 +1,4 @@
-Check it out [here](https://ancient-mountain-24559.herokuapp.com).
+### Check it out [here](https://ancient-mountain-24559.herokuapp.com).
 # rain-sentry
 ![Screenshot of the UI](misc/Screenshot-2.png)
 ## What is it?
