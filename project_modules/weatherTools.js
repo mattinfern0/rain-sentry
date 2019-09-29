@@ -71,7 +71,7 @@ const getRainyDays = (forecastList) => {
       result.push({
         dateTime: dateTime,
         date: dateTime.format('MMM D'),
-        time: dateTime.format('H:mm'),
+        time: dateTime.format('h:mm A'),
         main: weather.main,
         description: capitalizeFirstLetter(weather.description),
         iconUrl: getIconUrl(weather.icon),

@@ -1,7 +1,7 @@
 const { check,validationResult, sanitizeBody } = require('express-validator');
 const weatherTools = require('../project_modules/weatherTools');
 
-exports.getRainy = [
+exports.getCurrentWeather = [
   check('zipcode').isLength({min: 5, max: 5}).isNumeric(),
 
   (req, res, next) => {
@@ -42,7 +42,7 @@ exports.getRainy = [
   }
 ]; 
   
-exports.getCurrentWeather = [
+exports.getRainy = [
     check('zipcode').isLength({min: 5, max: 5}).isNumeric(),
 
     (req, res, next) => {
