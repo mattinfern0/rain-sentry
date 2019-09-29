@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Defaults for every view
 const navigation = [
   {name: 'Weather', link: '/weather'}, // Default root
-  {name: 'Rainy Days', link: '/rainy_days'},
+  {name: 'Rainy Forecast', link: '/rainy_forecast'},
   {name: 'Email Alerts', link: '/email_alerts'}
 ]
 app.use((req, res, next) => {
@@ -47,9 +47,9 @@ app.use(flash());
 app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 
-// catch 404 and forward to error handler
+// 404 handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  res.render('404');
 });
 
 // error handler

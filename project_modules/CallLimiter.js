@@ -6,6 +6,7 @@ const schedule = require('node-schedule');
 const CallLimiter = (maxCallsPerMin, errorMessage) => {
     // This makes sure the app won't go over the API limit (so i don't get charged)
     // Current plan has limit of 60 calls/min
+    console.log('New CallLimiter: max calls set to', maxCallsPerMin)
     let callCount = 0
   
     const resetFunc = () => {

@@ -7,6 +7,7 @@ exports.getRainy = [
   (req, res, next) => {
     res.locals.selectedI = 0;
     res.locals.targetUrl = '/weather'
+    res.locals.pageTitle = 'Current Weather'
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -46,7 +47,8 @@ exports.getCurrentWeather = [
 
     (req, res, next) => {
       res.locals.selectedI = 1;
-      res.locals.targetUrl = '/rainy_days';
+      res.locals.targetUrl = '/rainy_forecast';
+      res.locals.pageTitle = 'Rainy Forecast';
 
       const errors = validationResult(req);
       if (!errors.isEmpty()) {

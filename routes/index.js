@@ -9,16 +9,16 @@ router.get('/', function(req, res, next) {
 
 // Default route
 router.get('/weather', function(req, res, next) {
-  res.render('index', { targetUrl: '/weather', selectedI: 0 });
+  res.render('index', { targetUrl: '/weather', selectedI: 0, pageTitle: 'Current Weather' });
 });
 
 router.post('/weather', weatherController.getRainy);
 
-router.get('/rainy_days', (req, res, next) => {
-  res.render('index', {targetUrl: '/rainy_days', selectedI: 1});
+router.get('/rainy_forecast', (req, res, next) => {
+  res.render('index', {targetUrl: '/rainy_forecast', selectedI: 1, pageTitle: 'Rainy Forecast'});
 })
 
-router.post('/rainy_days', weatherController.getCurrentWeather);
+router.post('/rainy_forecast', weatherController.getCurrentWeather);
 
 router.get('/email_alerts', (req, res, next) => {
   res.render('indev', {selectedI: 2});

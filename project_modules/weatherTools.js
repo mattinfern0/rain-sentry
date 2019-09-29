@@ -4,7 +4,7 @@ const CallLimiter = require('./CallLimiter');
 
 const baseUrl = "http://api.openweathermap.org/data/2.5/forecast";
 
-ApiCallLimiter = CallLimiter((process.env.API_CALLS_PER_MIN || 40), 'API Call Limit Reached')
+ApiCallLimiter = CallLimiter((process.env.MAX_API_CALLS_PER_MIN || 40), 'API Call Limit Reached')
 
 // Returns a promise of the request
 const getWeather = (zipCode) => {
